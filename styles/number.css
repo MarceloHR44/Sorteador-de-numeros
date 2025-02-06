@@ -1,0 +1,110 @@
+div#number-draw {
+  margin-block: 2.125rem;
+
+  & form {
+    & #numbers-container {
+      padding-block: 2.5rem;
+      & #numbers-wrapper {
+        padding-bottom: 1.25rem;
+        display: flex;
+        gap: 0.5rem;
+        & .number-wrapper {
+          & .input-wrapper {
+            width: 5.375rem;
+            height: 3.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            & .number {
+              width: inherit;
+              height: inherit;
+              background-color: var(--background-secondary);
+              border-radius: inherit;
+              border: none;
+              outline: none;
+
+              color: var(--content-primary);
+              font: var(--display-small);
+              line-height: 0;
+
+              text-align: center;
+
+              position: relative;
+              &::after {
+                z-index: -1;
+                content: "";
+                position: absolute;
+                width: 5.375rem;
+                height: 3.5rem;
+                left: 0;
+                top: 0;
+                background: var(--linear-gradient-border);
+              }
+
+              &:focus {
+                background-color: var(background-tertiary);
+              }
+            }
+          }
+          & .number-label {
+            display: block;
+            font: var(--paragraph-large);
+            color: var(--content-secondary);
+            text-transform: uppercase;
+            padding-bottom: 0.5rem;
+            text-align: center;
+          }
+          &:has(input:focus) {
+            & .number-label {
+              color: var(--content-brand);
+            }
+            & .input-wrapper {
+              background: var(--linear-gradient-border);
+              & .number {
+                width: 5.125rem;
+                height: 3.25rem;
+              }
+            }
+          }
+          &:hover {
+            & label.number-label {
+              color: var(--content-brand);
+            }
+            & .input-wrapper {
+              background: var(--linear-gradient-border);
+              & .number {
+                background-color: var(--background-tertiary);
+
+                width: 5.25rem;
+                height: 3.375rem;
+              }
+            }
+          }
+        }
+      }
+      & #wrapper {
+        color: var(--content-primary);
+        font: 600 0.75rem/1.5 var(--ff-display);
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+    & button {
+      &:hover {
+        & img {
+          animation: changeIconPlace 2s 0ms infinite ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@keyframes changeIconPlace {
+  50% {
+    transform: translateX(50%);
+  }
+}
